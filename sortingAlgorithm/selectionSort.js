@@ -15,33 +15,19 @@ function selectionSort(arr) {
     // Step 3: Traverse the remaining elements to find a smaller value.
     // We start from i + 1 because elements before i are already sorted.
     // We compare each element with the current minimum element.
-    for (let j = i + 1; j < arr.length; j++) {
-
+    for (let j = i; j < arr.length; j++) {
       // Step 4: If the current element is smaller than the minimum,
       // update min to store the index of this smaller element.
       // We do not swap immediately; we only track the smallest index.
       if (arr[j] < arr[min]) {
-        min = j;
+        let temp = arr[j];  // Temporarily store the current element
+        arr[j] = arr[min];  // Put the smallest element at index j
+        arr[min] = temp;    // Put the old element at the minimum's position
       }
-    }
 
-    // Step 5: After checking all remaining elements, min contains
-    // the index of the smallest element in the unsorted portion.
-    // Swap that element with the element at index i.
-    // This places the smallest available element in its correct position.
-    if (min !== i) {
-      let temp = arr[i];  // Temporarily store the current element
-      arr[i] = arr[min];  // Put the smallest element at index i
-      arr[min] = temp;    // Put the old element at the minimum's position
     }
-
-    // Step 6: Move to the next index.
-    // The element at index i is now sorted, so we repeat the process
-    // for the remaining unsorted elements.
   }
 
-  // Step 7: Return the array after all elements have been sorted
-  // in ascending order (smallest to largest).
   return arr;
 }
 
