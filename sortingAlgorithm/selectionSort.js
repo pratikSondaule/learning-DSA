@@ -32,4 +32,51 @@ function selectionSort(arr) {
 }
 
 console.log(selectionSort(arr));
-// Output: [3, 6, 19, 41, 87, 88]
+
+/*
+TIME COMPLEXITY:   
+
+1. Outer Loop:
+   - The outer loop runs from 0 to n - 1.
+   - If the array contains n elements, it executes n times.
+
+2. Inner Loop:
+   - The inner loop starts from the current index i.
+   - Its iterations decrease after each pass because the smallest
+     element is placed at the beginning.
+
+   - Pass 1: n iterations
+   - Pass 2: n - 1 iterations
+   - Pass 3: n - 2 iterations
+   - ...
+   - Last pass: 1 iteration
+
+3. Total Iterations:
+   - Total = n + (n - 1) + (n - 2) + ... + 1
+   - Using the sum formula:
+
+     Total = n * (n + 1) / 2
+
+   - Expanding: (n² + n) / 2
+   - Ignore constants and lower-order terms.
+   - Final Time Complexity = O(n²)
+
+4. Best Case: O(n²)
+   - We still need to iterate through all the elements to compare them,
+     even if the array is already sorted.
+
+5. Average Case: O(n²)
+  The nested loops result in quadratic time complexity.
+
+- Worst Case: O(n²)
+  When the array is sorted in reverse order, we perform the maximum
+  number of comparisons and swaps.
+
+SPACE COMPLEXITY:
+
+- O(1)
+  We are sorting the array in place and only using a constant amount
+  of extra space for variables like i, j, and temp.
+
+  This means Selection Sort is space-efficient.
+*/
