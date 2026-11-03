@@ -7,6 +7,8 @@ function bubbleSort(arr) {
   // correct position at the end of the array.
   for (let i = arr.length - 1; i >= 0; i--) {
 
+    let didSwap = 0;
+
     // Step 2: Compare adjacent elements starting from the first index.
     // We only compare until index i because elements after i
     // are already sorted and don't need to be checked again.
@@ -22,8 +24,13 @@ function bubbleSort(arr) {
         arr[j + 1] = arr[j];
         arr[j] = temp;
 
+        didSwap = 1;
       }
 
+    }
+
+    if(didSwap == 0){
+      break;
     }
 
   }
